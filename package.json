@@ -12,7 +12,7 @@
   "devDependencies": {
     "prettier": "^3.6.2",
     "typescript": "^5.9.2",
-    "vite": "^7.1.4"
+    "vite": "^7.1.5"
   },
   "dependencies": {
     "@picocss/pico": "^2.1.1"
