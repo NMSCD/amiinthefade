@@ -7,10 +7,15 @@
     "dev": "vite",
     "build": "tsc && vite build",
     "preview": "vite preview",
-    "format": "prettier --write src/"
+    "format": "oxfmt",
+    "lint": "oxlint",
+    "lint:fix": "oxlint --fix",
+    "lint:ci": "oxlint --deny-warnings"
   },
   "devDependencies": {
-    "prettier": "^3.8.1",
+    "oxfmt": "^0.41.0",
+    "oxlint": "^1.56.0",
+    "oxlint-tsgolint": "^0.17.1",
     "typescript": "^5.9.3",
     "vite": "^8.0.2"
   },
