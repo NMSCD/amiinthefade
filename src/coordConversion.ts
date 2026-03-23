@@ -6,10 +6,10 @@ export function coords2Glyphs(coords: string): string {
   const Y_POS_SHIFT = 129;
   const Y_NEG_SHIFT = 127;
 
-  const x_coords = parseInt(coords.substring(0, 4), 16);
-  const y_coords = parseInt(coords.substring(5, 9), 16);
-  const z_coords = parseInt(coords.substring(10, 14), 16);
-  const system_idx = parseInt(coords.substring(15, 19), 16);
+  const x_coords = Number.parseInt(coords.substring(0, 4), 16);
+  const y_coords = Number.parseInt(coords.substring(5, 9), 16);
+  const z_coords = Number.parseInt(coords.substring(10, 14), 16);
+  const system_idx = Number.parseInt(coords.substring(15, 19), 16);
 
   let portal_x = 0;
   let portal_y = 0;

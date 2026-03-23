@@ -1,7 +1,7 @@
 {
   "name": "amiinthefade",
-  "private": true,
   "version": "0.0.0",
+  "private": true,
   "type": "module",
   "scripts": {
     "dev": "vite",
@@ -12,14 +12,14 @@
     "lint:fix": "oxlint --fix",
     "lint:ci": "oxlint --deny-warnings"
   },
+  "dependencies": {
+    "@picocss/pico": "^2.1.1"
+  },
   "devDependencies": {
     "oxfmt": "^0.41.0",
     "oxlint": "^1.56.0",
     "oxlint-tsgolint": "^0.17.1",
     "typescript": "^5.9.3",
     "vite": "^8.0.2"
-  },
-  "dependencies": {
-    "@picocss/pico": "^2.1.1"
   }
 }

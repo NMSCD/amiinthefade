@@ -24,6 +24,8 @@ export function isFadeSpace(input: string): boolean {
   return isFade;
 }
 
+const getClass = (success: boolean) => (success ? 'has-background-success-dark' : 'has-background-danger-dark');
+
 export function setOutput(output: string, success: boolean) {
   const outputElement = globalElements.output!.output as HTMLOutputElement;
 
@@ -33,9 +35,5 @@ export function setOutput(output: string, success: boolean) {
   outputElement.classList.add(addClass);
   outputElement.classList.remove(removeClass);
 
-  outputElement.innerText = output;
-
-  function getClass(success: boolean) {
-    return success ? 'has-background-success-dark' : 'has-background-danger-dark';
-  }
+  outputElement.textContent = output;
 }

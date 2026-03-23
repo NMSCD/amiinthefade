@@ -1,9 +1,7 @@
 type AnyHTMLElement<T extends keyof HTMLElementTagNameMap = keyof HTMLElementTagNameMap> = HTMLElementTagNameMap[T];
 export type GlobalElement = AnyHTMLElement | AnyHTMLElement[];
 
-interface ElementId {
-  [key: string]: string;
-}
+type ElementId = Record<string, string>;
 
 interface ElementIds {
   input?: ElementId;
@@ -11,8 +9,8 @@ interface ElementIds {
 }
 
 export interface GlobalElements {
-  input?: { [key: string]: GlobalElement };
-  output?: { [key: string]: GlobalElement };
+  input?: Record<string, GlobalElement>;
+  output?: Record<string, GlobalElement>;
 }
 
 const elementIds: ElementIds = {
@@ -40,7 +38,7 @@ function updateGlobalElements(object: ElementIds): void {
       const element = getElement(dest);
       if (element == null) continue;
       globalElements[section] ??= {};
-      globalElements[section]![key] = element;
+      globalElements[section][key] = element;
     }
   }
 }
@@ -48,7 +46,7 @@ function updateGlobalElements(object: ElementIds): void {
 function getElement(dest: string): GlobalElement | null {
   const destElements = Array.from(document.getElementsByName(dest));
   if (destElements.length) return destElements;
-  const destElement = document.getElementById(dest);
+  const destElement = document.querySelector(`#${dest}`);
   return destElement;
 }
 

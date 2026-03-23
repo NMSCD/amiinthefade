@@ -1,4 +1,4 @@
-import { getElement, type GlobalElement, globalElements, type GlobalElements } from './elementStore';
+import { type GlobalElement, type GlobalElements, getElement, globalElements } from './elementStore';
 import { reset, submit } from './formActions';
 import { deleteCharacter } from './glyphLogic';
 import { switchTheme } from './themeSwitch';
@@ -56,7 +56,9 @@ export function assignFunction(dataObject: ElementFunctions): void {
   })() as GlobalElement;
   if (element == null) console.error(elementId + ' is null');
   if (Array.isArray(element)) {
-    element.forEach((element) => element.addEventListener(handler, func));
+    element.forEach((element) => {
+      element.addEventListener(handler, func);
+    });
   } else {
     element.addEventListener(handler, func);
   }

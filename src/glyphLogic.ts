@@ -1,10 +1,10 @@
-import { assignFunction, type ElementFunctions } from './elementFunctions';
+import { type ElementFunctions, assignFunction } from './elementFunctions';
 import { globalElements } from './elementStore';
 
 const validPortalKeys = '0123456789ABCDEF';
 
 // adds the portal buttons
-const wrapper = document.querySelector('.portal-buttons') as HTMLElement;
+const wrapper = document.querySelector('.portal-buttons')!;
 const codeStore: string[] = [];
 const functionArray: ElementFunctions[] = [];
 for (let i = 0; i < validPortalKeys.length; i++) {
@@ -31,7 +31,7 @@ export function showGlyphs() {
   const glyphOutputId = 'glyphDisplay';
   const glyphInput = globalElements.input![glyphInputId] as HTMLInputElement;
   const glyphOutput = globalElements.output![glyphOutputId] as HTMLOutputElement;
-  glyphOutput.innerText = glyphInput.value;
+  glyphOutput.textContent = glyphInput.value;
 }
 
 // makes glyph buttons clickable and adds their value to input field
@@ -49,7 +49,7 @@ function glyphOnClick(button: HTMLButtonElement) {
 
 // deletes last character of a string
 export function deleteCharacter(inputId: string) {
-  const input = document.getElementById(inputId) as HTMLInputElement;
+  const input = document.querySelector(`#${inputId}`)!;
   const editedText = input.value.slice(0, -1);
 
   input.value = editedText;
