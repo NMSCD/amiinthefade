@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "tsc && vite build",
+    "build": "vue-tsc && vite build",
     "preview": "vite preview",
     "format": "oxfmt",
     "lint": "oxlint",
@@ -13,9 +13,14 @@
     "lint:ci": "oxlint --deny-warnings"
   },
   "dependencies": {
-    "@picocss/pico": "^2.1.1"
+    "@nmscd/coordinate-conversion": "^1.2.4",
+    "@picocss/pico": "^2.1.1",
+    "@vueuse/core": "^14.2.1",
+    "vue": "^3.5.31",
+    "vue-tsc": "^3.2.6"
   },
   "devDependencies": {
+    "@vitejs/plugin-vue": "^6.0.5",
     "oxfmt": "^0.41.0",
     "oxlint": "^1.56.0",
     "oxlint-tsgolint": "^0.17.1",

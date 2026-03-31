@@ -1,39 +1,10 @@
 import '@picocss/pico';
-import './styles.css';
-// the order of the CSS imports is IMPORTANT, DO NOT change it!!!
-import './elementFunctions';
-import { globalElements } from './elementStore';
-import { coords2Glyphs } from './coordConversion';
+import '@/styles/styles.css';
+import App from './App.vue';
+import { createApp } from 'vue';
 
-// check if glyphs / coords / region match
-export function isFadeSpace(input: string): boolean {
-  const convertedGlyphs = coords2Glyphs(input);
+// oxlint-disable-next-line typescript/no-unsafe-argument
+const app = createApp(App);
 
-  const validFadeGlyphs = {
-    x: ['801', '7FF'],
-    z: ['801', '7FF'],
-    y: ['81', '7F'],
-  };
-
-  const isFadeX = validFadeGlyphs.x.includes(convertedGlyphs.slice(-3));
-  const isFadeZ = validFadeGlyphs.z.includes(convertedGlyphs.slice(-6, -3));
-  const isFadeY = validFadeGlyphs.y.includes(convertedGlyphs.slice(4, 6));
-
-  const isFade = isFadeX || isFadeY || isFadeZ;
-
-  return isFade;
-}
-
-const getClass = (success: boolean) => (success ? 'has-background-success-dark' : 'has-background-danger-dark');
-
-export function setOutput(output: string, success: boolean) {
-  const outputElement = globalElements.output!.output as HTMLOutputElement;
-
-  const addClass = getClass(success);
-  const removeClass = getClass(!success);
-
-  outputElement.classList.add(addClass);
-  outputElement.classList.remove(removeClass);
-
-  outputElement.textContent = output;
-}
+// css selector where the app should be mounted
+app.mount('#app');
