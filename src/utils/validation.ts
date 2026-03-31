@@ -1,7 +1,7 @@
 import { GalacticCoordinate } from '@nmscd/coordinate-conversion';
 import { maxCoordLength } from '@/variables/constants';
 
-// check if glyphs / coords / region match
+// check if glyphs / coords match
 export function isFadeSpace(input: string): boolean {
   const isMaxCoordLength = input.length === maxCoordLength;
 
