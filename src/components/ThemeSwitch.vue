@@ -1,10 +1,22 @@
+<script setup lang="ts">
 // determine preferred theme and update the html element with the respective tag
-const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+const prefersDark = globalThis.matchMedia('(prefers-color-scheme: dark)').matches;
 switchTheme(prefersDark ? 'dark' : 'light');
 
-export function switchTheme(theme: string | null = null) {
+function switchTheme(theme?: string) {
   const currentTheme = document.documentElement.dataset.theme;
   const computedNewTheme = currentTheme === 'dark' ? 'light' : 'dark';
   const newTheme = theme ?? computedNewTheme;
   document.documentElement.dataset.theme = newTheme;
 }
+</script>
+
+<template>
+  <button
+    class="themeswitcher"
+    type="button"
+    @click="switchTheme()"
+  >
+    Switch Theme
+  </button>
+</template>
