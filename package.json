@@ -20,7 +20,7 @@
     "vue-tsc": "^3.3.7"
   },
   "devDependencies": {
-    "@vitejs/plugin-vue": "^6.0.7",
+    "@vitejs/plugin-vue": "^6.0.8",
     "oxfmt": "^0.59.0",
     "oxlint": "^1.76.0",
     "oxlint-tsgolint": "^0.24.0",
